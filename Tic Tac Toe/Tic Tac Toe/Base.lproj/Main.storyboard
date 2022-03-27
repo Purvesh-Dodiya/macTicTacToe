@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Tic_Tac_Toe" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -683,10 +685,10 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Tic Tac Toe" subtitle="Awasome game" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="750" height="325"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -698,20 +700,271 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="210" y="277.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="506" height="506"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" rowSpacing="3" columnSpacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="XcT-Q8-0TK">
+                                <rect key="frame" x="100" y="100" width="306" height="306"/>
+                                <rows>
+                                    <gridRow height="100" id="CUg-V1-m6v"/>
+                                    <gridRow height="100" id="rcR-D9-lBc"/>
+                                    <gridRow height="100" id="moX-82-ZOX"/>
+                                </rows>
+                                <columns>
+                                    <gridColumn width="100" id="Jnl-ab-d3M"/>
+                                    <gridColumn width="100" id="ybF-IY-0Bd"/>
+                                    <gridColumn width="100" id="Of1-kG-o1W"/>
+                                </columns>
+                                <gridCells>
+                                    <gridCell row="CUg-V1-m6v" column="Jnl-ab-d3M" id="9zP-OM-bZz">
+                                        <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="16P-LX-Uxo">
+                                            <rect key="frame" x="0.0" y="206" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="L7u-JE-zsj"/>
+                                                <constraint firstAttribute="width" constant="80" id="yK0-wb-V1F"/>
+                                            </constraints>
+                                            <backgroundFilters>
+                                                <ciFilter name="CIColorMonochrome">
+                                                    <configuration>
+                                                        <ciColor key="inputColor" red="1" green="0.62352941176470589" blue="0.039215686274509803" alpha="1"/>
+                                                        <null key="inputImage"/>
+                                                        <real key="inputIntensity" value="1"/>
+                                                    </configuration>
+                                                </ciFilter>
+                                            </backgroundFilters>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="XZb-fj-fod">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                    <color key="value" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickOne:" target="XfG-lQ-9wD" id="sdk-k4-j9c"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="CUg-V1-m6v" column="ybF-IY-0Bd" id="83z-Te-u54">
+                                        <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="v4a-Um-Ati">
+                                            <rect key="frame" x="103" y="206" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="5D1-pe-5u3"/>
+                                                <constraint firstAttribute="width" constant="80" id="jSQ-ws-1ad"/>
+                                            </constraints>
+                                            <backgroundFilters>
+                                                <ciFilter name="CIColorMonochrome">
+                                                    <configuration>
+                                                        <ciColor key="inputColor" red="1" green="1" blue="1" alpha="1"/>
+                                                        <null key="inputImage"/>
+                                                        <real key="inputIntensity" value="1"/>
+                                                    </configuration>
+                                                </ciFilter>
+                                            </backgroundFilters>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="lys-KO-SOm">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                    <color key="value" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickTwo:" target="XfG-lQ-9wD" id="BGY-8F-A84"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="CUg-V1-m6v" column="Of1-kG-o1W" id="dpi-Tz-5bv">
+                                        <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="Kbs-dF-bjl">
+                                            <rect key="frame" x="206" y="206" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="6Wr-eC-h5K"/>
+                                                <constraint firstAttribute="height" constant="80" id="Aym-sI-cNc"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="h8j-3Y-WZd">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                    <color key="value" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickThree:" target="XfG-lQ-9wD" id="cKz-ZS-mpn"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="rcR-D9-lBc" column="Jnl-ab-d3M" id="NEC-lk-AmO">
+                                        <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="6U8-bK-4Hc">
+                                            <rect key="frame" x="0.0" y="103" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="CvK-LX-axn"/>
+                                                <constraint firstAttribute="width" constant="80" id="zx3-tY-6yB"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="EQU-SE-D1j">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                    <color key="value" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickFour:" target="XfG-lQ-9wD" id="Kh5-KW-KbV"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="rcR-D9-lBc" column="ybF-IY-0Bd" id="y5g-nF-b6X">
+                                        <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="RY3-iK-KSj">
+                                            <rect key="frame" x="103" y="103" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="80Z-jH-9YR"/>
+                                                <constraint firstAttribute="height" constant="80" id="rQY-7F-Aen"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="6MA-QS-GaN">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                    <color key="value" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickFive:" target="XfG-lQ-9wD" id="QQH-Eo-YtD"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="rcR-D9-lBc" column="Of1-kG-o1W" id="wXd-jy-TvH">
+                                        <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="KmA-j2-Pl6">
+                                            <rect key="frame" x="206" y="103" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="RpE-qr-NM7"/>
+                                                <constraint firstAttribute="width" constant="80" id="lmu-X9-wld"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="qlP-rI-5GB">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                    <color key="value" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickSix:" target="XfG-lQ-9wD" id="mfq-2i-L8j"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="moX-82-ZOX" column="Jnl-ab-d3M" id="Ymk-M2-6d8">
+                                        <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="zRL-LW-gEe">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="DWx-p7-sWt"/>
+                                                <constraint firstAttribute="height" constant="80" id="yOn-7L-bQn"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Gkz-NW-sOv">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                    <color key="value" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickSeven:" target="XfG-lQ-9wD" id="LQu-OG-7bW"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="moX-82-ZOX" column="ybF-IY-0Bd" id="4JH-FJ-s6b">
+                                        <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="9Ap-Zb-0pm">
+                                            <rect key="frame" x="103" y="0.0" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="480-Tz-a04"/>
+                                                <constraint firstAttribute="height" constant="80" id="bev-1b-rHo"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="fGx-vc-keG">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                    <color key="value" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickEight:" target="XfG-lQ-9wD" id="ndn-5p-SNa"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="moX-82-ZOX" column="Of1-kG-o1W" id="6uK-LN-AYE">
+                                        <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="eCm-qI-3G5">
+                                            <rect key="frame" x="206" y="0.0" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="osh-5X-XIN"/>
+                                                <constraint firstAttribute="height" constant="80" id="yLy-tE-Frt"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="8Qx-He-OGe">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                    <color key="value" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickNine:" target="XfG-lQ-9wD" id="t1Q-C7-yTa"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                </gridCells>
+                            </gridView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="XcT-Q8-0TK" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="100" id="GCp-K7-M3d"/>
+                            <constraint firstItem="XcT-Q8-0TK" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="100" id="Mmq-EK-aXB"/>
+                            <constraint firstAttribute="trailing" secondItem="XcT-Q8-0TK" secondAttribute="trailing" constant="100" id="gjy-R0-aAz"/>
+                            <constraint firstAttribute="bottom" secondItem="XcT-Q8-0TK" secondAttribute="bottom" constant="100" id="vr5-nJ-L96"/>
+                        </constraints>
+                        <backgroundFilters>
+                            <ciFilter name="CIColorMonochrome">
+                                <configuration>
+                                    <ciColor key="inputColor" red="0.25490196078431371" green="0.61176470588235299" blue="1" alpha="1"/>
+                                    <null key="inputImage"/>
+                                    <real key="inputIntensity" value="1"/>
+                                </configuration>
+                            </ciFilter>
+                        </backgroundFilters>
                     </view>
+                    <connections>
+                        <outlet property="buttonEight" destination="9Ap-Zb-0pm" id="HGj-yB-GP0"/>
+                        <outlet property="buttonFive" destination="RY3-iK-KSj" id="Bw2-LB-Ldi"/>
+                        <outlet property="buttonFour" destination="6U8-bK-4Hc" id="Ric-9Y-sDk"/>
+                        <outlet property="buttonNine" destination="eCm-qI-3G5" id="vuo-We-Gdv"/>
+                        <outlet property="buttonOne" destination="16P-LX-Uxo" id="JaA-dd-aUA"/>
+                        <outlet property="buttonSeven" destination="zRL-LW-gEe" id="xBX-kF-uI9"/>
+                        <outlet property="buttonSix" destination="KmA-j2-Pl6" id="arB-vu-W2Z"/>
+                        <outlet property="buttonThree" destination="Kbs-dF-bjl" id="jdc-8d-YeY"/>
+                        <outlet property="buttonTwo" destination="v4a-Um-Ati" id="OjK-Hs-NjJ"/>
+                        <outlet property="gridView" destination="XcT-Q8-0TK" id="Pw0-yn-UTh"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="268.5" y="972.5"/>
         </scene>
     </scenes>
 </document>
