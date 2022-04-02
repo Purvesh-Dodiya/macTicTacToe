@@ -21,29 +21,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var buttonEight: NSButton!
     @IBOutlet weak var buttonNine: NSButton!
     
-    //MARK:- Vairiables
+    //MARK:- Variables
     var isOTurn = true
     var arrayOfNine = [TypeOfTurn](repeating: .default, count: 9)
-    
-    //Enum
-    enum TypeOfTurn {
-        case x
-        case o
-        case `default`
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
 
 }
 
@@ -127,6 +107,69 @@ extension ViewController {
 
 extension ViewController {
     func checkForWin() {
+        if (arrayOfNine[0] == arrayOfNine [1] && arrayOfNine [1] == arrayOfNine[2] && arrayOfNine[2] != TypeOfTurn.default) {
+            announceWinner(winnerType: arrayOfNine[2])
+        } else if (arrayOfNine[3] == arrayOfNine [4] && arrayOfNine [4] == arrayOfNine[5] && arrayOfNine[5] != TypeOfTurn.default) {
+            announceWinner(winnerType: arrayOfNine[5])
+        } else if (arrayOfNine[6] == arrayOfNine [7] && arrayOfNine [7] == arrayOfNine[8] && arrayOfNine[8] != TypeOfTurn.default) {
+            announceWinner(winnerType: arrayOfNine[8])
+        } else if (arrayOfNine[0] == arrayOfNine [3] && arrayOfNine [3] == arrayOfNine[6] && arrayOfNine[6] != TypeOfTurn.default) {
+            announceWinner(winnerType: arrayOfNine[6])
+        } else if (arrayOfNine[1] == arrayOfNine [4] && arrayOfNine [4] == arrayOfNine[7] && arrayOfNine[7] != TypeOfTurn.default) {
+            announceWinner(winnerType: arrayOfNine[7])
+        } else if (arrayOfNine[2] == arrayOfNine [5] && arrayOfNine [5] == arrayOfNine[8] && arrayOfNine[8] != TypeOfTurn.default) {
+            announceWinner(winnerType: arrayOfNine[8])
+        } else if (arrayOfNine[0] == arrayOfNine [4] && arrayOfNine [4] == arrayOfNine[8] && arrayOfNine[8] != TypeOfTurn.default) {
+            announceWinner(winnerType: arrayOfNine[8])
+        } else if (arrayOfNine[2] == arrayOfNine [4] && arrayOfNine [4] == arrayOfNine[6] && arrayOfNine[6] != TypeOfTurn.default) {
+            announceWinner(winnerType: arrayOfNine[6])
+        } else if (!arrayOfNine.contains(TypeOfTurn.default)) {
+            announceWinner(winnerType: TypeOfTurn.default)
+        }
+    }
+}
+
+extension ViewController {
+    func announceWinner(winnerType: TypeOfTurn) {
+        switch winnerType {
+        case .default:
+            showAlert(message: "Draw !")
+        case .x, .o:
+            showAlert(message: "Congratulations \(winnerType.rawValue)")
+        }
         
+    }
+}
+
+
+extension ViewController {
+    
+    func showAlert(message: String) {
+        let alert = NSAlert()
+        alert.messageText = message
+        alert.addButton(withTitle: "Play Again")
+        alert.informativeText = "Infffoo"
+        alert.alertStyle = .informational
+        var frame = alert.window.frame
+        frame.size.height = 500
+        frame.size.width = 500
+        alert.window.setFrame(frame, display: true)
+        let stackViewer = NSStackView(frame: NSRect(x: 0, y: 0, width: 200, height: 00))
+        alert.accessoryView = stackViewer
+        alert.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
+            if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+                self.resetGame()
+                alert.window.endSheet(self.view.window ?? NSWindow())
+            }
+        })
+    }
+}
+
+extension ViewController {
+    func resetGame() {
+        arrayOfNine = [TypeOfTurn](repeating: .default, count: 9)
+        [buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven, buttonEight, buttonNine].forEach { button in
+            button?.image = NSImage()
+        }
     }
 }
