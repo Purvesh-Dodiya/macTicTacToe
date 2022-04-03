@@ -33,14 +33,21 @@ extension NSViewController {
 extension ViewController {
     
     func openHomeScreen() {
-        gridView.isHidden = true
+        viewGameZone.isHidden = true
         viewHomeScreen.isHidden = false
         viewCreateRoom.isHidden = true
         viewWaitingRoomStack.isHidden = true
     }
     
+    func openOfLineGameZone() {
+        viewGameZone.isHidden = false
+        viewHomeScreen.isHidden = true
+        viewCreateRoom.isHidden = true
+        viewWaitingRoomStack.isHidden = true
+    }
+    
     func openCreateRoomScreen() {
-        gridView.isHidden = true
+        viewGameZone.isHidden = true
         viewHomeScreen.isHidden = true
         viewCreateRoom.isHidden = false
         viewWaitingRoomStack.isHidden = true
@@ -49,17 +56,22 @@ extension ViewController {
     }
     
     func openWaitingRoomScreen() {
-        gridView.isHidden = true
+        viewGameZone.isHidden = true
         viewHomeScreen.isHidden = true
         viewCreateRoom.isHidden = true
         viewWaitingRoomStack.isHidden = false
         indicatorWatingRoom.startAnimation(nil)
     }
     
-    func openGameZoneWithOpponentName(opponentName: String) {
-        gridView.isHidden = false
+    func openGameZoneWithOpponentName(opponentName: String, yourName: String) {
+        viewGameZone.isHidden = false
         viewHomeScreen.isHidden = true
         viewCreateRoom.isHidden = true
         viewWaitingRoomStack.isHidden = true
+        lblOpponentName.stringValue = opponentName
+        lblYourName.stringValue = yourName
+        gameType = .online
+        resetGame()
+        initiateOnlineGame()
     }
 }

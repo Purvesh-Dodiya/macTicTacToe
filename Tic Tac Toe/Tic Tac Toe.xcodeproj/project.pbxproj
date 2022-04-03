@@ -11,6 +11,7 @@
 		5D37A44F27F9718A00587637 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37A44E27F9718A00587637 /* CommonFunction.swift */; };
 		5D37A45127F972EE00587637 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D37A45027F972ED00587637 /* GoogleService-Info.plist */; };
 		5D37A45327F97BF800587637 /* WaitingRoomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37A45227F97BF800587637 /* WaitingRoomExtension.swift */; };
+		5D37A45527F98BC300587637 /* GameZoneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37A45427F98BC300587637 /* GameZoneExtension.swift */; };
 		5D7461B627F03888000299D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7461B527F03888000299D9 /* AppDelegate.swift */; };
 		5D7461B827F03888000299D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7461B727F03888000299D9 /* ViewController.swift */; };
 		5D7461BA27F03889000299D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7461B927F03889000299D9 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		5D37A44E27F9718A00587637 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		5D37A45027F972ED00587637 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D37A45227F97BF800587637 /* WaitingRoomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomExtension.swift; sourceTree = "<group>"; };
+		5D37A45427F98BC300587637 /* GameZoneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameZoneExtension.swift; sourceTree = "<group>"; };
 		5D7461B227F03888000299D9 /* Tic Tac Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic Tac Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7461B527F03888000299D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D7461B727F03888000299D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				5D37A44A27F9692800587637 /* CreateRoomExtension.swift */,
 				5D37A44E27F9718A00587637 /* CommonFunction.swift */,
 				5D37A45227F97BF800587637 /* WaitingRoomExtension.swift */,
+				5D37A45427F98BC300587637 /* GameZoneExtension.swift */,
 			);
 			path = "Tic Tac Toe";
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D37A45327F97BF800587637 /* WaitingRoomExtension.swift in Sources */,
+				5D37A45527F98BC300587637 /* GameZoneExtension.swift in Sources */,
 				5D37A44F27F9718A00587637 /* CommonFunction.swift in Sources */,
 				5D7461B827F03888000299D9 /* ViewController.swift in Sources */,
 				5D7461E127F0A77B000299D9 /* Enumration.swift in Sources */,

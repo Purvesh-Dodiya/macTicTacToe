@@ -23,7 +23,9 @@ extension ViewController {
         let waitingRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
         waitingRoomRef.observe(.childAdded, with: { (snapshot) -> Void in
             if (snapshot.key == DatabaseKey.opponentName.rawValue) {
-                self.openGameZoneWithOpponentName(opponentName: (snapshot.value as? String) ?? "")
+                self.youAreAdmin = true
+                self.roomCode = roomCode
+                self.openGameZoneWithOpponentName(opponentName: (snapshot.value as? String) ?? "", yourName: self.lblYourName.stringValue)
             }
         })
     }
