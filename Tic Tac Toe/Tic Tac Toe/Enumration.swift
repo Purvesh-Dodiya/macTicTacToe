@@ -13,3 +13,9 @@ enum TypeOfTurn: String {
     case o
     case `default`
 }
+
+enum DatabaseKey: String {
+    case room
+    case yourName
+    case opponentName
+}
