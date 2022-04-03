@@ -11,7 +11,7 @@ import Firebase
 //Create Room Action
 extension ViewController {
     @IBAction func onClickOfCreateRoomBack(_ sender: Any) {
-        gridView.isHidden = true
+        viewGameZone.isHidden = true
         viewHomeScreen.isHidden = false
         viewCreateRoom.isHidden = true
     }
