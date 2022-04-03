@@ -6,9 +6,10 @@
 //
 
 import Cocoa
+import Firebase
 
 class ViewController: NSViewController {
-
+    
     //MARK:- Outlets
     @IBOutlet weak var gridView: NSGridView!
     @IBOutlet weak var buttonOne: NSButton!
@@ -24,24 +25,34 @@ class ViewController: NSViewController {
     //MARK:- Variables
     var isOTurn = true
     var arrayOfNine = [TypeOfTurn](repeating: .default, count: 9)
-
-    //Main Screen
-    @IBOutlet weak var viewHomeScreen: NSView!
     
+    //MARK:- Variables Create Room
+    var ref: DatabaseReference!
+    
+    
+    //MARK:- Main Screen Outlets
+    @IBOutlet weak var viewHomeScreen: NSView!
     @IBOutlet weak var viewCreateRoom: NSView!
     
-    //Create Rome
+    
+    //MARK:- Create Room Outlet
+    @IBOutlet weak var btnBackCreateRoom: NSButton!
     @IBOutlet weak var btnCreateRoom: NSButton!
     @IBOutlet weak var indicatorCreateRoom: NSProgressIndicator!
+    @IBOutlet weak var txtName: NSTextField!
     
-    @IBOutlet weak var btnBackCreateRoom: NSButton!
+    //MARK:- WaitingRoom Outlets
+    @IBOutlet weak var viewWaitingRoomStack: NSView!
+    @IBOutlet weak var indicatorWatingRoom: NSProgressIndicator!
+    @IBOutlet weak var lblRoomCode: NSTextField!
+    
     
     override func viewDidLoad() {
-        gridView.isHidden = true
-        viewHomeScreen.isHidden = false
-        viewCreateRoom.isHidden = true
+        FirebaseApp.configure()
+        ref = Database.database().reference()
+        openHomeScreen()
     }
-
+    
     
 }
 
@@ -54,26 +65,10 @@ extension ViewController {
     }
     
     @IBAction func onClickOfCreateRoomMode(_ sender: NSButton) {
-        gridView.isHidden = true
-        viewHomeScreen.isHidden = true
-        viewCreateRoom.isHidden = false
-        indicatorCreateRoom.isHidden = true
-        btnCreateRoom.isHidden = false
+        openCreateRoomScreen()
     }
     
-    @IBAction func onClickOfCreateRoomBack(_ sender: Any) {
-        gridView.isHidden = true
-        viewHomeScreen.isHidden = false
-        viewCreateRoom.isHidden = true
-    }
     
-    @IBAction func onClickOfCreateRoomApi(_ sender: NSButton) {
-        btnCreateRoom.isHidden = true
-        indicatorCreateRoom.isHidden = false
-        btnBackCreateRoom.isHidden = true
-        indicatorCreateRoom.startAnimation(nil)
-        
-    }
 }
 
 //MARK:- GameZone OutLet Actions
@@ -221,8 +216,4 @@ extension ViewController {
             button?.image = NSImage()
         }
     }
-}
-
-extension ViewController {
- 
 }
