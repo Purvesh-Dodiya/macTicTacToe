@@ -25,9 +25,58 @@ class ViewController: NSViewController {
     var isOTurn = true
     var arrayOfNine = [TypeOfTurn](repeating: .default, count: 9)
 
+    //Main Screen
+    @IBOutlet weak var viewHomeScreen: NSView!
+    
+    @IBOutlet weak var viewCreateRoom: NSView!
+    
+    //Create Rome
+    @IBOutlet weak var btnCreateRoom: NSButton!
+    @IBOutlet weak var indicatorCreateRoom: NSProgressIndicator!
+    
+    @IBOutlet weak var btnBackCreateRoom: NSButton!
+    
+    override func viewDidLoad() {
+        gridView.isHidden = true
+        viewHomeScreen.isHidden = false
+        viewCreateRoom.isHidden = true
+    }
+
+    
 }
 
-//MARK:- OutLet Actions
+//MARK:- App Outlet Acton
+extension ViewController {
+    @IBAction func onClickOfOfline(_ sender: Any) {
+        gridView.isHidden = false
+        viewHomeScreen.isHidden = true
+        viewCreateRoom.isHidden = true
+    }
+    
+    @IBAction func onClickOfCreateRoomMode(_ sender: NSButton) {
+        gridView.isHidden = true
+        viewHomeScreen.isHidden = true
+        viewCreateRoom.isHidden = false
+        indicatorCreateRoom.isHidden = true
+        btnCreateRoom.isHidden = false
+    }
+    
+    @IBAction func onClickOfCreateRoomBack(_ sender: Any) {
+        gridView.isHidden = true
+        viewHomeScreen.isHidden = false
+        viewCreateRoom.isHidden = true
+    }
+    
+    @IBAction func onClickOfCreateRoomApi(_ sender: NSButton) {
+        btnCreateRoom.isHidden = true
+        indicatorCreateRoom.isHidden = false
+        btnBackCreateRoom.isHidden = true
+        indicatorCreateRoom.startAnimation(nil)
+        
+    }
+}
+
+//MARK:- GameZone OutLet Actions
 extension ViewController {
     
     @IBAction func onClickOne(_ sender: Any) {
@@ -172,4 +221,8 @@ extension ViewController {
             button?.image = NSImage()
         }
     }
+}
+
+extension ViewController {
+ 
 }
