@@ -15,4 +15,12 @@ class HomeVC: NSViewController {
         // Do view setup here.
     }
     
+    override func viewWillDisappear() {
+        
+    }
+    
+    @IBAction func onClickOfOnlineGame(_ sender: NSButton) {
+        
+        
+    }
 }
