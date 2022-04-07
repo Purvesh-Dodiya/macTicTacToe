@@ -36,6 +36,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var viewHomeScreen: NSView!
     @IBOutlet weak var viewCreateRoom: NSView!
     @IBOutlet weak var viewGameZone: NSView!
+    @IBOutlet weak var viewJoinRoom: NSView!
     
     
     //MARK:- Create Room Outlet
@@ -48,7 +49,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var viewWaitingRoomStack: NSView!
     @IBOutlet weak var indicatorWatingRoom: NSProgressIndicator!
     @IBOutlet weak var lblRoomCode: NSTextField!
-    
+
     //GameZone Outlets
     @IBOutlet weak var lblYourName: NSTextField!
     @IBOutlet weak var lblYourType: NSTextField!
@@ -56,13 +57,21 @@ class ViewController: NSViewController {
     @IBOutlet weak var lblOpponentType: NSTextField!
     @IBOutlet weak var lblTurnMessage: NSTextField!
     @IBOutlet weak var gridView: NSGridView!
-    
+
     override func viewDidLoad() {
         FirebaseApp.configure()
         ref = Database.database().reference()
         openHomeScreen()
     }
     
+    //MARK:- Join Room
+    @IBOutlet weak var indicatorJoin: NSProgressIndicator!
+    @IBOutlet weak var txtYourNameJoin: NSTextField!
+    @IBOutlet weak var txtRoomCodeJoinRoom: NSTextField!
+    @IBOutlet weak var btnCreateJoin: NSLayoutConstraint!
+    @IBOutlet weak var btnJoinRoom: NSButton!
+    @IBOutlet weak var btnBackJoin: NSButton!
+  
 }
 
 //MARK:- App Outlet Acton
@@ -75,6 +84,9 @@ extension ViewController {
         openCreateRoomScreen()
     }
     
-
+    @IBAction func onClickOfJoinRoom(_ sender: Any) {
+        openJoiningRoom()
+    }
+    
 }
 

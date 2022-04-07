@@ -83,6 +83,7 @@ extension ViewController {
                 createRoomRef.updateChildValues([BoxName.gameSix.rawValue: lblYourType.stringValue])
             }
             arrayOfNine[BoxName.gameSix.rawValue] = isOTurn ? TypeOfTurn.O.rawValue : TypeOfTurn.X.rawValue
+            isOTurn = !isOTurn
             checkForWin()
             return
         }
@@ -126,6 +127,13 @@ extension ViewController {
             return
         }
     }
+    
+    @IBAction func onClickOfExitGame(_ sender: NSButton) {
+        roomCode = ""
+        youAreAdmin = false
+        gameType = nil
+        openHomeScreen()
+    }    
     
 }
 
@@ -171,8 +179,11 @@ extension ViewController {
                 lblYourType.stringValue = TypeOfTurn.X.rawValue
                 lblOpponentType.stringValue = TypeOfTurn.O.rawValue
             }
+            let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
+            createRoomRef.setValue(["opponentTurn": lblOpponentType.stringValue, DatabaseKey.yourName.rawValue: lblYourName.stringValue,
+                                    DatabaseKey.opponentName.rawValue: lblOpponentName.stringValue])
+            updateTurnMessage()
         }
-        updateTurnMessage()
     }
 }
 
@@ -183,7 +194,9 @@ extension ViewController {
         let alert = NSAlert()
         alert.messageText = message
         alert.informativeText = subMessage
-        alert.addButton(withTitle: "Play Again")
+        if (youAreAdmin) {
+            alert.addButton(withTitle: "Play Again")
+        }
         alert.alertStyle = .informational
         var frame = alert.window.frame
         frame.size.height = 500
@@ -266,15 +279,35 @@ extension ViewController {
                 case BoxName.gameSix.rawValue:
                     self.onClickSix(nil)
                 case BoxName.gameSeven.rawValue:
-                    self.onClickSix(nil)
-                case BoxName.gameEight.rawValue:
                     self.onClickSeven(nil)
+                case BoxName.gameEight.rawValue:
+                    self.onClickEight(nil)
                 case BoxName.gameNine.rawValue:
                     self.onClickNine(nil)
                 default:
                     break;
                 }
             }
+        })
+    }
+    
+    func initiateTurnObserver() {
+        let waitingRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
+        waitingRoomRef.observe(.childAdded, with: { (snapshot) -> Void in
+            if (snapshot.key.contains("opponentTurn")) {
+                if ((snapshot.value as? String ?? "") == TypeOfTurn.O.rawValue) {
+                    self.lblYourType.stringValue = TypeOfTurn.O.rawValue
+                    self.lblOpponentType.stringValue = TypeOfTurn.X.rawValue
+                } else {
+                    self.lblYourType.stringValue = TypeOfTurn.X.rawValue
+                    self.lblOpponentType.stringValue = TypeOfTurn.O.rawValue
+                }
+                self.updateTurnMessage()
+                self.resetGame()
+            }
+        })
+        waitingRoomRef.observe(.childRemoved, with: { (snapshot) -> Void in
+            self.resetGame()
         })
     }
 }
