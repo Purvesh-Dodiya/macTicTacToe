@@ -14,26 +14,32 @@ extension ViewController {
         viewGameZone.isHidden = true
         viewHomeScreen.isHidden = false
         viewCreateRoom.isHidden = true
+        viewWaitingRoomStack.isHidden = true
+        viewJoinRoom.isHidden = true
     }
     
     @IBAction func onClickOfCreateRoomApi(_ sender: NSButton) {
-        btnCreateRoom.isHidden = true
-        indicatorCreateRoom.isHidden = false
-        btnBackCreateRoom.isHidden = true
-        indicatorCreateRoom.startAnimation(nil)
-        let createRoomRef = ref.child(DatabaseKey.room.rawValue).childByAutoId()
-        createRoomRef.setValue([DatabaseKey.yourName.rawValue: txtName.stringValue]) { [weak self] (error, reference) -> Void in
-            guard let `self` = self else {return}
-            if (error != nil) {
-                self.showErrorAlert(message: error?.localizedDescription ?? "")
-                self.btnCreateRoom.isHidden = false
-                self.indicatorCreateRoom.isHidden = true
-                self.btnBackCreateRoom.isHidden = false
-            } else {
-                self.lblRoomCode.stringValue = createRoomRef.key ?? "Please create room again"
-                self.openWaitingRoomScreen()
-                self.checkForOpponentToJoin(roomCode: createRoomRef.key ?? "")
+        if (!txtName.stringValue.isEmpty) {
+            btnCreateRoom.isHidden = true
+            indicatorCreateRoom.isHidden = false
+            btnBackCreateRoom.isHidden = true
+            indicatorCreateRoom.startAnimation(nil)
+            let createRoomRef = ref.child(DatabaseKey.room.rawValue).childByAutoId()
+            createRoomRef.setValue([DatabaseKey.yourName.rawValue: txtName.stringValue]) { [weak self] (error, reference) -> Void in
+                guard let `self` = self else {return}
+                if (error != nil) {
+                    self.showErrorAlert(message: error?.localizedDescription ?? "")
+                    self.btnCreateRoom.isHidden = false
+                    self.indicatorCreateRoom.isHidden = true
+                    self.btnBackCreateRoom.isHidden = false
+                } else {
+                    self.lblRoomCode.stringValue = createRoomRef.key ?? "Please create room again"
+                    self.openWaitingRoomScreen()
+                    self.checkForOpponentToJoin(roomCode: createRoomRef.key ?? "")
+                }
             }
+        } else {
+            showErrorAlert(message: "Please enter your name")
         }
     }
 }

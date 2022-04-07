@@ -25,7 +25,7 @@ extension ViewController {
             if (snapshot.key == DatabaseKey.opponentName.rawValue) {
                 self.youAreAdmin = true
                 self.roomCode = roomCode
-                self.openGameZoneWithOpponentName(opponentName: (snapshot.value as? String) ?? "", yourName: self.lblYourName.stringValue)
+                self.openGameZoneWithOpponentName(opponentName: snapshot.value as? String ?? "", yourName: self.txtName.stringValue)
             }
         })
     }

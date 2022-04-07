@@ -37,6 +37,7 @@ extension ViewController {
         viewHomeScreen.isHidden = false
         viewCreateRoom.isHidden = true
         viewWaitingRoomStack.isHidden = true
+        viewJoinRoom.isHidden = true
     }
     
     func openOfLineGameZone() {
@@ -44,6 +45,7 @@ extension ViewController {
         viewHomeScreen.isHidden = true
         viewCreateRoom.isHidden = true
         viewWaitingRoomStack.isHidden = true
+        viewJoinRoom.isHidden = true
     }
     
     func openCreateRoomScreen() {
@@ -51,8 +53,10 @@ extension ViewController {
         viewHomeScreen.isHidden = true
         viewCreateRoom.isHidden = false
         viewWaitingRoomStack.isHidden = true
+        viewJoinRoom.isHidden = true
         indicatorCreateRoom.isHidden = true
         btnCreateRoom.isHidden = false
+        btnBackCreateRoom.isHidden = false
     }
     
     func openWaitingRoomScreen() {
@@ -60,6 +64,7 @@ extension ViewController {
         viewHomeScreen.isHidden = true
         viewCreateRoom.isHidden = true
         viewWaitingRoomStack.isHidden = false
+        viewJoinRoom.isHidden = true
         indicatorWatingRoom.startAnimation(nil)
     }
     
@@ -68,10 +73,20 @@ extension ViewController {
         viewHomeScreen.isHidden = true
         viewCreateRoom.isHidden = true
         viewWaitingRoomStack.isHidden = true
+        viewJoinRoom.isHidden = true
         lblOpponentName.stringValue = opponentName
         lblYourName.stringValue = yourName
         gameType = .online
         resetGame()
         initiateOnlineGame()
+    }
+    
+    func openJoiningRoom() {
+        viewGameZone.isHidden = true
+        viewHomeScreen.isHidden = true
+        viewCreateRoom.isHidden = true
+        viewWaitingRoomStack.isHidden = true
+        viewJoinRoom.isHidden = false
+        indicatorJoin.isHidden = true
     }
 }
