@@ -7,16 +7,24 @@
 
 import Cocoa
 import Firebase
+import Lottie
 
 class ViewController: NSViewController {
     
     //MARK:- Outlets
-    @IBOutlet weak var viewHomeScreen: NSView!
+    @IBOutlet weak var animationView: NSView!
     
     override func viewDidLoad() {
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
+        let lottieAnimation = AnimationView(name: Animation.homeAnimation.rawValue)
+        lottieAnimation.frame = view.bounds
+        lottieAnimation.contentMode = .scaleAspectFill
+        lottieAnimation.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
+        animationView.addSubview(lottieAnimation)
+        lottieAnimation.loopMode = .loop
+        lottieAnimation.play()
     }
 }
 

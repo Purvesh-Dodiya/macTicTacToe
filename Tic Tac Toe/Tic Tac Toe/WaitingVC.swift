@@ -7,11 +7,12 @@
 
 import Cocoa
 import Firebase
+import Lottie
 
 class WaitingVC: NSViewController {
     
     //MARK:- Outlets
-    @IBOutlet weak var indicatorWatingRoom: NSProgressIndicator!
+    @IBOutlet weak var viewAnimation: NSView!
     @IBOutlet weak var lblRoomCode: NSTextField!
     
     //MARK:- Variables
@@ -20,10 +21,16 @@ class WaitingVC: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        indicatorWatingRoom.startAnimation(nil)
         guard let roomCode = roomCode else {return}
         self.lblRoomCode.stringValue = roomCode
         self.checkForOpponentToJoin(roomCode: roomCode)
+        let lottieAnimation = AnimationView(name: Animation.waitingAnimation.rawValue)
+        lottieAnimation.frame = view.bounds
+        lottieAnimation.contentMode = .scaleAspectFill
+        lottieAnimation.frame = CGRect(x: 0, y: 0, width: 190, height: 190)
+        viewAnimation.addSubview(lottieAnimation)
+        lottieAnimation.loopMode = .loop
+        lottieAnimation.play()
     }
     
 }

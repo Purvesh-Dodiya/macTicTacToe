@@ -6,6 +6,7 @@ target 'Tic Tac Toe' do
   use_frameworks!
 
 pod 'Firebase/Database'
+pod 'lottie-ios'
   # Pods for Tic Tac Toe
 
   target 'Tic Tac ToeTests' do

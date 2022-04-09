@@ -237,26 +237,15 @@ extension GameZoneVC {
 extension GameZoneVC {
     
     func showAlert(message: String, subMessage: String) {
-        let alert = NSAlert()
-        alert.messageText = message
-        alert.informativeText = subMessage
-        if (youAreAdmin || gameType == .ofline) {
-            alert.addButton(withTitle: "Play Again")
+        if let gameOverAlertVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "gameOverAlertVC") as? GameOverAlertVC {
+            gameOverAlertVC.delegate = self
+            gameOverAlertVC.titleText = message
+            gameOverAlertVC.descriptionText = subMessage
+            gameOverAlertVC.buttonText = "Play Again"
+            self.presentAsSheet(gameOverAlertVC)
         }
-        alert.alertStyle = .informational
-        var frame = alert.window.frame
-        frame.size.height = 500
-        frame.size.width = 500
-        alert.window.setFrame(frame, display: true)
-        let stackViewer = NSStackView(frame: NSRect(x: 0, y: 0, width: 200, height: 00))
-        alert.accessoryView = stackViewer
-        alert.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
-            if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
-                self.resetGame()
-                alert.window.endSheet(self.view.window ?? NSWindow())
-            }
-        })
     }
+    
 }
 
 //MARK:- announceWinner
@@ -384,4 +373,13 @@ extension GameZoneVC {
             self.updateTurnMessage()
         })
     }
+}
+
+extension GameZoneVC: GameOverDelegate {
+    func onGameOverPressed() {
+        if (youAreAdmin || gameType == .ofline) {
+            self.resetGame()
+        }
+    }
+    
 }
