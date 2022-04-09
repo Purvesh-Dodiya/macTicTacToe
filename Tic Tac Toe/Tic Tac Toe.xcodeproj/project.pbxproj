@@ -21,6 +21,7 @@
 		5D7461D227F03889000299D9 /* Tic_Tac_ToeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7461D127F03889000299D9 /* Tic_Tac_ToeUITests.swift */; };
 		5D7461D427F03889000299D9 /* Tic_Tac_ToeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7461D327F03889000299D9 /* Tic_Tac_ToeUITestsLaunchTests.swift */; };
 		5D7461E127F0A77B000299D9 /* Enumration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7461E027F0A77B000299D9 /* Enumration.swift */; };
+		5DE50D172801A58900896CA1 /* CreateRoomoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE50D152801A58800896CA1 /* CreateRoomoVC.swift */; };
 		635F9BA48B506087039C53E0 /* Pods_Tic_Tac_Toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC22F795DD8D5E1DEB731AFB /* Pods_Tic_Tac_Toe.framework */; };
 		AD23A66BA0E46A251C1240E1 /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5405C96C2B83BD2183008EC /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework */; };
 		C05455F138DB2A81A4B7E342 /* Pods_Tic_Tac_ToeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEC2A6A9A6869975BD8DF01 /* Pods_Tic_Tac_ToeTests.framework */; };
@@ -63,6 +64,7 @@
 		5D7461D127F03889000299D9 /* Tic_Tac_ToeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tic_Tac_ToeUITests.swift; sourceTree = "<group>"; };
 		5D7461D327F03889000299D9 /* Tic_Tac_ToeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tic_Tac_ToeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5D7461E027F0A77B000299D9 /* Enumration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumration.swift; sourceTree = "<group>"; };
+		5DE50D152801A58800896CA1 /* CreateRoomoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomoVC.swift; sourceTree = "<group>"; };
 		6387B7A1E9D255E0BF4B81AE /* Pods-Tic Tac ToeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac ToeTests.debug.xcconfig"; path = "Target Support Files/Pods-Tic Tac ToeTests/Pods-Tic Tac ToeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		788F1AFB7630C288EA6106A4 /* Pods-Tic Tac Toe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac Toe.debug.xcconfig"; path = "Target Support Files/Pods-Tic Tac Toe/Pods-Tic Tac Toe.debug.xcconfig"; sourceTree = "<group>"; };
 		8AB0E66301131C8EA72E36FC /* Pods-Tic Tac Toe-Tic Tac ToeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac Toe-Tic Tac ToeUITests.release.xcconfig"; path = "Target Support Files/Pods-Tic Tac Toe-Tic Tac ToeUITests/Pods-Tic Tac Toe-Tic Tac ToeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				5D37A45227F97BF800587637 /* WaitingRoomExtension.swift */,
 				5D37A45427F98BC300587637 /* GameZoneExtension.swift */,
 				5D37A45627FA1C6000587637 /* JoinRoomExtension.swift */,
+				5DE50D152801A58800896CA1 /* CreateRoomoVC.swift */,
 			);
 			path = "Tic Tac Toe";
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				5D37A45527F98BC300587637 /* GameZoneExtension.swift in Sources */,
 				5D37A44F27F9718A00587637 /* CommonFunction.swift in Sources */,
 				5D7461B827F03888000299D9 /* ViewController.swift in Sources */,
+				5DE50D172801A58900896CA1 /* CreateRoomoVC.swift in Sources */,
 				5D37A45727FA1C6000587637 /* JoinRoomExtension.swift in Sources */,
 				5D7461E127F0A77B000299D9 /* Enumration.swift in Sources */,
 				5D37A44B27F9692800587637 /* CreateRoomExtension.swift in Sources */,

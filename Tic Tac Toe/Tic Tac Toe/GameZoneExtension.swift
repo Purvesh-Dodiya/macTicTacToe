@@ -11,7 +11,7 @@ import Cocoa
 extension ViewController {
     
     @IBAction func onClickOne(_ sender: Any?) {
-        if nil == arrayOfNine[BoxName.gameOne.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue) {
+        if nil == arrayOfNine[BoxName.gameOne.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline) {
             buttonOne.image = isOTurn ? NSImage(systemSymbolName: "circle", accessibilityDescription: "") : NSImage(systemSymbolName: "x.circle.fill", accessibilityDescription: "")
             if (gameType == .online) {
                 let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
@@ -24,7 +24,7 @@ extension ViewController {
         }
     }
     @IBAction func onClickTwo(_ sender: Any?) {
-        if nil == arrayOfNine[BoxName.gameTwo.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue) {
+        if nil == arrayOfNine[BoxName.gameTwo.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline) {
             buttonTwo.image = isOTurn ? NSImage(systemSymbolName: "circle", accessibilityDescription: "") : NSImage(systemSymbolName: "x.circle.fill", accessibilityDescription: "")
             if (gameType == .online) {
                 let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
@@ -37,7 +37,7 @@ extension ViewController {
         }
     }
     @IBAction func onClickThree(_ sender: Any?) {
-        if nil == arrayOfNine[BoxName.gameThree.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue) {
+        if nil == arrayOfNine[BoxName.gameThree.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline) {
             buttonThree.image = isOTurn ? NSImage(systemSymbolName: "circle", accessibilityDescription: "") : NSImage(systemSymbolName: "x.circle.fill", accessibilityDescription: "")
             if (gameType == .online) {
                 let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
@@ -50,7 +50,7 @@ extension ViewController {
         }
     }
     @IBAction func onClickFour(_ sender: Any?) {
-        if nil == arrayOfNine[BoxName.gameFour.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue) {
+        if nil == arrayOfNine[BoxName.gameFour.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline) {
             buttonFour.image = isOTurn ? NSImage(systemSymbolName: "circle", accessibilityDescription: "") : NSImage(systemSymbolName: "x.circle.fill", accessibilityDescription: "")
             if (gameType == .online) {
                 let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
@@ -63,7 +63,7 @@ extension ViewController {
         }
     }
     @IBAction func onClickFive(_ sender: Any?) {
-        if nil == arrayOfNine[BoxName.gameFive.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue) {
+        if nil == arrayOfNine[BoxName.gameFive.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline) {
             buttonFive.image = isOTurn ? NSImage(systemSymbolName: "circle", accessibilityDescription: "") : NSImage(systemSymbolName: "x.circle.fill", accessibilityDescription: "")
             if (gameType == .online) {
                 let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
@@ -76,7 +76,7 @@ extension ViewController {
         }
     }
     @IBAction func onClickSix(_ sender: Any?) {
-        if nil == arrayOfNine[BoxName.gameSix.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue) {
+        if nil == arrayOfNine[BoxName.gameSix.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline) {
             buttonSix.image = isOTurn ? NSImage(systemSymbolName: "circle", accessibilityDescription: "") : NSImage(systemSymbolName: "x.circle.fill", accessibilityDescription: "")
             if (gameType == .online) {
                 let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
@@ -89,7 +89,7 @@ extension ViewController {
         }
     }
     @IBAction func onClickSeven(_ sender: Any?) {
-        if nil == arrayOfNine[BoxName.gameSeven.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue) {
+        if nil == arrayOfNine[BoxName.gameSeven.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline) {
             buttonSeven.image = isOTurn ? NSImage(systemSymbolName: "circle", accessibilityDescription: "") : NSImage(systemSymbolName: "x.circle.fill", accessibilityDescription: "")
             if (gameType == .online) {
                 let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
@@ -102,7 +102,7 @@ extension ViewController {
         }
     }
     @IBAction func onClickEight(_ sender: Any?) {
-        if nil == arrayOfNine[BoxName.gameEight.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue) {
+        if nil == arrayOfNine[BoxName.gameEight.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline) {
             buttonEight.image = isOTurn ? NSImage(systemSymbolName: "circle", accessibilityDescription: "") : NSImage(systemSymbolName: "x.circle.fill", accessibilityDescription: "")
             if (gameType == .online) {
                 let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
@@ -115,7 +115,7 @@ extension ViewController {
         }
     }
     @IBAction func onClickNine(_ sender: Any?) {
-        if nil == arrayOfNine[BoxName.gameNine.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue)  {
+        if nil == arrayOfNine[BoxName.gameNine.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline)  {
             buttonNine.image = isOTurn ? NSImage(systemSymbolName: "circle", accessibilityDescription: "") : NSImage(systemSymbolName: "x.circle.fill", accessibilityDescription: "")
             if (gameType == .online) {
                 let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
@@ -194,7 +194,7 @@ extension ViewController {
         let alert = NSAlert()
         alert.messageText = message
         alert.informativeText = subMessage
-        if (youAreAdmin) {
+        if (youAreAdmin || gameType == .ofline) {
             alert.addButton(withTitle: "Play Again")
         }
         alert.alertStyle = .informational
