@@ -27,67 +27,34 @@ extension NSViewController {
         })
     }
     
-}
-
-//MARK: Open Screen
-extension ViewController {
-    
-    func openHomeScreen() {
-        viewGameZone.isHidden = true
-        viewHomeScreen.isHidden = false
-        viewCreateRoom.isHidden = true
-        viewWaitingRoomStack.isHidden = true
-        viewJoinRoom.isHidden = true
+    func presentInNewWindow(viewController: NSViewController) {
+        self.view.window?.contentViewController = viewController
     }
     
-    func openOfLineGameZone() {
-        viewGameZone.isHidden = false
-        viewHomeScreen.isHidden = true
-        viewCreateRoom.isHidden = true
-        viewWaitingRoomStack.isHidden = true
-        viewJoinRoom.isHidden = true
-        gameType = .ofline
+    func moveToHomeVC() {
+        if let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "viewController") as? ViewController {
+            presentInNewWindow(viewController: viewController)
+        }
     }
     
-    func openCreateRoomScreen() {
-        viewGameZone.isHidden = true
-        viewHomeScreen.isHidden = true
-        viewCreateRoom.isHidden = false
-        viewWaitingRoomStack.isHidden = true
-        viewJoinRoom.isHidden = true
-        indicatorCreateRoom.isHidden = true
-        btnCreateRoom.isHidden = false
-        btnBackCreateRoom.isHidden = false
+    func moveToOnlineGameZone(youAreAdmin: Bool, roomCode: String, yourName: String, opponentName: String) {
+        if let gameZoneVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "gameZoneVC") as? GameZoneVC {
+            gameZoneVC.youAreAdmin = youAreAdmin
+            gameZoneVC.roomCode = roomCode
+            gameZoneVC.yourName = yourName
+            gameZoneVC.opponentName = opponentName
+            gameZoneVC.gameType = .online
+            self.presentInNewWindow(viewController: gameZoneVC)
+        }
     }
     
-    func openWaitingRoomScreen() {
-        viewGameZone.isHidden = true
-        viewHomeScreen.isHidden = true
-        viewCreateRoom.isHidden = true
-        viewWaitingRoomStack.isHidden = false
-        viewJoinRoom.isHidden = true
-        indicatorWatingRoom.startAnimation(nil)
-    }
-    
-    func openGameZoneWithOpponentName(opponentName: String, yourName: String) {
-        viewGameZone.isHidden = false
-        viewHomeScreen.isHidden = true
-        viewCreateRoom.isHidden = true
-        viewWaitingRoomStack.isHidden = true
-        viewJoinRoom.isHidden = true
-        lblOpponentName.stringValue = opponentName
-        lblYourName.stringValue = yourName
-        gameType = .online
-        resetGame()
-        initiateOnlineGame()
-    }
-    
-    func openJoiningRoom() {
-        viewGameZone.isHidden = true
-        viewHomeScreen.isHidden = true
-        viewCreateRoom.isHidden = true
-        viewWaitingRoomStack.isHidden = true
-        viewJoinRoom.isHidden = false
-        indicatorJoin.isHidden = true
+    func moveToOflineGameZone(yourName: String, opponentName: String) {
+        if let gameZoneVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "gameZoneVC") as? GameZoneVC {
+            gameZoneVC.youAreAdmin = false
+            gameZoneVC.yourName = yourName
+            gameZoneVC.opponentName = opponentName
+            gameZoneVC.gameType = .ofline
+            self.presentInNewWindow(viewController: gameZoneVC)
+        }
     }
 }

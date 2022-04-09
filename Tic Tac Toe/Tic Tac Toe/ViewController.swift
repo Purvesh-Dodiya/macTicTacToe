@@ -11,82 +11,63 @@ import Firebase
 class ViewController: NSViewController {
     
     //MARK:- Outlets
-    @IBOutlet weak var buttonOne: NSButton!
-    @IBOutlet weak var buttonTwo: NSButton!
-    @IBOutlet weak var buttonThree: NSButton!
-    @IBOutlet weak var buttonFour: NSButton!
-    @IBOutlet weak var buttonFive: NSButton!
-    @IBOutlet weak var buttonSix: NSButton!
-    @IBOutlet weak var buttonSeven: NSButton!
-    @IBOutlet weak var buttonEight: NSButton!
-    @IBOutlet weak var buttonNine: NSButton!
-    
-    //MARK:- Variables
-    var isOTurn = true
-    var arrayOfNine:[String: String] = [:]
-    var youAreAdmin = false
-    var roomCode: String = ""
-    var gameType: GameType?
-    
-    //MARK:- Variables Create Room
-    var ref: DatabaseReference!
-    
-    
-    //MARK:- Main Screen Outlets
     @IBOutlet weak var viewHomeScreen: NSView!
-    @IBOutlet weak var viewCreateRoom: NSView!
-    @IBOutlet weak var viewGameZone: NSView!
-    @IBOutlet weak var viewJoinRoom: NSView!
     
-    
-    //MARK:- Create Room Outlet
-    @IBOutlet weak var btnBackCreateRoom: NSButton!
-    @IBOutlet weak var btnCreateRoom: NSButton!
-    @IBOutlet weak var indicatorCreateRoom: NSProgressIndicator!
-    @IBOutlet weak var txtName: NSTextField!
-    
-    //MARK:- WaitingRoom Outlets
-    @IBOutlet weak var viewWaitingRoomStack: NSView!
-    @IBOutlet weak var indicatorWatingRoom: NSProgressIndicator!
-    @IBOutlet weak var lblRoomCode: NSTextField!
-
-    //GameZone Outlets
-    @IBOutlet weak var lblYourName: NSTextField!
-    @IBOutlet weak var lblYourType: NSTextField!
-    @IBOutlet weak var lblOpponentName: NSTextField!
-    @IBOutlet weak var lblOpponentType: NSTextField!
-    @IBOutlet weak var lblTurnMessage: NSTextField!
-    @IBOutlet weak var gridView: NSGridView!
-
     override func viewDidLoad() {
-        FirebaseApp.configure()
-        ref = Database.database().reference()
-        openHomeScreen()
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
     }
-    
-    //MARK:- Join Room
-    @IBOutlet weak var indicatorJoin: NSProgressIndicator!
-    @IBOutlet weak var txtYourNameJoin: NSTextField!
-    @IBOutlet weak var txtRoomCodeJoinRoom: NSTextField!
-    @IBOutlet weak var btnCreateJoin: NSLayoutConstraint!
-    @IBOutlet weak var btnJoinRoom: NSButton!
-    @IBOutlet weak var btnBackJoin: NSButton!
-  
 }
 
 //MARK:- App Outlet Acton
 extension ViewController {
     @IBAction func onClickOfOfline(_ sender: Any) {
-        openOfLineGameZone()
+        if let startOflineGame = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "startOflineGame") as? StartOflineGame {
+            startOflineGame.delegate = self
+            self.presentAsSheet(startOflineGame)
+        }
     }
     
     @IBAction func onClickOfCreateRoomMode(_ sender: NSButton) {
-        openCreateRoomScreen()
+        if let createRoomVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "createRoomVC") as? CreateRoomVC {
+            createRoomVC.delegate = self
+            self.presentAsSheet(createRoomVC)
+        }
     }
     
     @IBAction func onClickOfJoinRoom(_ sender: Any) {
-        openJoiningRoom()
+        if let joinRoomVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "joinRoomVC") as? JoinRoomVC {
+            joinRoomVC.delegate = self
+            self.presentAsSheet(joinRoomVC)
+        }
     }
     
 }
 
+//MARK:- RoomCreated
+extension ViewController: RoomCreated {
+    func roomCreated(roomCode: String, yourName: String) {
+        if let waitingVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "waitingVC") as? WaitingVC {
+            waitingVC.roomCode = roomCode
+            waitingVC.yourName = yourName
+            presentInNewWindow(viewController: waitingVC)
+        }
+    }
+    
+}
+
+//MARK:- JointRoomProtocol
+extension ViewController: JointRoomProtocol {
+    func onJoinedSuccess(youName: String, opponentName: String, roomCode: String) {
+        moveToOnlineGameZone(youAreAdmin: false, roomCode: roomCode, yourName: youName, opponentName: opponentName)
+    }
+    
+}
+
+extension ViewController: StartOflineGameProtocol {
+    func onStartGame(yourName: String, opponentName: String) {
+        moveToOflineGameZone(yourName: yourName, opponentName: opponentName)
+    }
+    
+}

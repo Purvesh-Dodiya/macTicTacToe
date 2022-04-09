@@ -1,14 +1,58 @@
 //
-//  GameZoneExtension.swift
+//  GameZoneVC.swift
 //  Tic Tac Toe
 //
-//  Created by Purvesh Dodiya on 03/04/22.
+//  Created by Purvesh Dodiya on 09/04/22.
 //
 
 import Cocoa
+import Firebase
 
-//MARK:- GameZone OutLet Actions
-extension ViewController {
+class GameZoneVC: NSViewController {
+    
+    //MARK:-  Outlets
+    @IBOutlet weak var buttonOne: NSButton!
+    @IBOutlet weak var buttonTwo: NSButton!
+    @IBOutlet weak var buttonThree: NSButton!
+    @IBOutlet weak var buttonFour: NSButton!
+    @IBOutlet weak var buttonFive: NSButton!
+    @IBOutlet weak var buttonSix: NSButton!
+    @IBOutlet weak var buttonSeven: NSButton!
+    @IBOutlet weak var buttonEight: NSButton!
+    @IBOutlet weak var buttonNine: NSButton!
+    @IBOutlet weak var lblYourName: NSTextField!
+    @IBOutlet weak var lblYourType: NSTextField!
+    @IBOutlet weak var lblOpponentName: NSTextField!
+    @IBOutlet weak var lblOpponentType: NSTextField!
+    @IBOutlet weak var lblTurnMessage: NSTextField!
+    @IBOutlet weak var gridView: NSGridView!
+    
+    //MARK:- Variables
+    var isOTurn = true
+    var arrayOfNine:[String: String] = [:]
+    var youAreAdmin = false
+    var roomCode: String = ""
+    var gameType: GameType?
+    var ref: DatabaseReference!
+    var opponentName: String?
+    var yourName: String?
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ref = Database.database().reference()
+        lblOpponentName.stringValue = opponentName ?? ""
+        lblYourName.stringValue = yourName ?? ""
+        resetGame()
+        gameType == .online ? initiateOnlineGame() : nil
+        (youAreAdmin || gameType == .ofline ) ? nil : self.initiateTurnObserver()
+    }
+    
+}
+
+
+//MARK:- Actions Outlets
+extension GameZoneVC {
     
     @IBAction func onClickOne(_ sender: Any?) {
         if nil == arrayOfNine[BoxName.gameOne.rawValue], (sender == nil || getCurrentType() == lblYourType.stringValue || gameType == .ofline) {
@@ -132,13 +176,13 @@ extension ViewController {
         roomCode = ""
         youAreAdmin = false
         gameType = nil
-        openHomeScreen()
-    }    
+        moveToHomeVC()
+    }
     
 }
 
 //MARK:- checkForWin
-extension ViewController {
+extension GameZoneVC {
     func checkForWin() {
         updateTurnMessage()
         if isThreeSame(firstBox: .gameOne, secondBox: BoxName.gameTwo, thirdBox: .gameThree)  {
@@ -164,14 +208,14 @@ extension ViewController {
 }
 
 //MARK:- resetGame
-extension ViewController {
+extension GameZoneVC {
     func resetGame() {
         arrayOfNine = [:]
         [buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven, buttonEight, buttonNine].forEach { button in
             button?.image = NSImage()
         }
         isOTurn = true
-        if (youAreAdmin) {
+        if (youAreAdmin || gameType == .ofline) {
             if (Int.random(in: 0...1) == 0) {
                 lblYourType.stringValue = TypeOfTurn.O.rawValue
                 lblOpponentType.stringValue = TypeOfTurn.X.rawValue
@@ -179,16 +223,18 @@ extension ViewController {
                 lblYourType.stringValue = TypeOfTurn.X.rawValue
                 lblOpponentType.stringValue = TypeOfTurn.O.rawValue
             }
-            let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
-            createRoomRef.setValue(["opponentTurn": lblOpponentType.stringValue, DatabaseKey.yourName.rawValue: lblYourName.stringValue,
-                                    DatabaseKey.opponentName.rawValue: lblOpponentName.stringValue])
+            if (gameType == .online) {
+                let createRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
+                createRoomRef.setValue(["opponentTurn": lblOpponentType.stringValue, DatabaseKey.yourName.rawValue: lblYourName.stringValue,
+                                        DatabaseKey.opponentName.rawValue: lblOpponentName.stringValue])
+            }
             updateTurnMessage()
         }
     }
 }
 
 //MARK:- showAlert
-extension ViewController {
+extension GameZoneVC {
     
     func showAlert(message: String, subMessage: String) {
         let alert = NSAlert()
@@ -214,13 +260,21 @@ extension ViewController {
 }
 
 //MARK:- announceWinner
-extension ViewController {
+extension GameZoneVC {
     func announceWinner(winnerType: String?) {
         switch winnerType {
         case lblOpponentType.stringValue:
-            showAlert(message: "Opps! \(lblOpponentName.stringValue) won", subMessage: "Better luck next time !")
+            if (gameType == .online) {
+                showAlert(message: "Opps! \(lblOpponentName.stringValue) won", subMessage: "Better luck next time !")
+            } else {
+                showAlert(message: "Won!", subMessage: "Congratulations \(lblOpponentName.stringValue)")
+            }
         case lblYourType.stringValue:
-            showAlert(message: "You Won!", subMessage: "Congratulations \(lblYourName.stringValue)")
+            if (gameType == .online) {
+                showAlert(message: "You Won!", subMessage: "Congratulations \(lblYourName.stringValue)")
+            } else {
+                showAlert(message: "Won!", subMessage: "Congratulations \(lblYourName.stringValue)")
+            }
         default:
             showAlert(message: "Draw !", subMessage: "Play again to win !")
         }
@@ -229,10 +283,14 @@ extension ViewController {
 }
 
 //MARK:- updateTurnMessage
-extension ViewController {
+extension GameZoneVC {
     func updateTurnMessage() {
         if ((isOTurn && lblYourType.stringValue == TypeOfTurn.O.rawValue) || (!isOTurn && lblYourType.stringValue == TypeOfTurn.X.rawValue)) {
-            lblTurnMessage.stringValue = GameTurnMessage.your.rawValue
+            if (gameType == .online) {
+                lblTurnMessage.stringValue = GameTurnMessage.your.rawValue
+            } else {
+                lblTurnMessage.stringValue = "\(lblYourName.stringValue)\(GameTurnMessage.opponent.rawValue)"
+            }
         } else {
             lblTurnMessage.stringValue = "\(lblOpponentName.stringValue)\(GameTurnMessage.opponent.rawValue)"
         }
@@ -248,8 +306,8 @@ extension ViewController {
     
 }
 
-//MARK:-
-extension ViewController {
+//MARK:- isThreeSame
+extension GameZoneVC {
     
     func isThreeSame(firstBox: BoxName, secondBox: BoxName, thirdBox: BoxName) -> Bool {
         if let first = arrayOfNine[firstBox.rawValue], let second = arrayOfNine[secondBox.rawValue], let third = arrayOfNine[thirdBox.rawValue], (first,second) == (second, third) {
@@ -258,9 +316,11 @@ extension ViewController {
             return false
         }
     }
+    
 }
 
-extension ViewController {
+//MARK:- initiateOnlineGame
+extension GameZoneVC {
     func initiateOnlineGame() {
         let waitingRoomRef = ref.child(DatabaseKey.room.rawValue).child(roomCode)
         waitingRoomRef.observe(.childAdded, with: { (snapshot) -> Void in
@@ -302,12 +362,26 @@ extension ViewController {
                     self.lblYourType.stringValue = TypeOfTurn.X.rawValue
                     self.lblOpponentType.stringValue = TypeOfTurn.O.rawValue
                 }
-                self.updateTurnMessage()
                 self.resetGame()
+                self.updateTurnMessage()
+            }
+        })
+        waitingRoomRef.observe(.childChanged, with: { (snapshot) -> Void in
+            if (snapshot.key.contains("opponentTurn")) {
+                if ((snapshot.value as? String ?? "") == TypeOfTurn.O.rawValue) {
+                    self.lblYourType.stringValue = TypeOfTurn.O.rawValue
+                    self.lblOpponentType.stringValue = TypeOfTurn.X.rawValue
+                } else {
+                    self.lblYourType.stringValue = TypeOfTurn.X.rawValue
+                    self.lblOpponentType.stringValue = TypeOfTurn.O.rawValue
+                }
+                self.resetGame()
+                self.updateTurnMessage()
             }
         })
         waitingRoomRef.observe(.childRemoved, with: { (snapshot) -> Void in
             self.resetGame()
+            self.updateTurnMessage()
         })
     }
 }
