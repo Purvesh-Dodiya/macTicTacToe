@@ -38,6 +38,7 @@ extension ViewController {
                             self.indicatorJoin.isHidden = true
                             self.btnJoinRoom.isHidden = false
                             self.youAreAdmin = false
+                            self.txtRoomCodeJoinRoom.stringValue = ""
                             self.openGameZoneWithOpponentName(opponentName: snapshot.childSnapshot(forPath: DatabaseKey.yourName.rawValue).value as? String ?? "", yourName: self.txtYourNameJoin.stringValue)
                         }
                     }

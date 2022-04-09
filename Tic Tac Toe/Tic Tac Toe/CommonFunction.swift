@@ -46,6 +46,7 @@ extension ViewController {
         viewCreateRoom.isHidden = true
         viewWaitingRoomStack.isHidden = true
         viewJoinRoom.isHidden = true
+        gameType = .ofline
     }
     
     func openCreateRoomScreen() {
