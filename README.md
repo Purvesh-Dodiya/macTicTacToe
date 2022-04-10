@@ -1,19 +1,14 @@
-![alt text](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/develop/Tic%20tac%20toe-logos/Tic%20tac%20toe-logos-modified.png)
+[![Tic Tac Toe](https://media4.giphy.com/media/13Nc3xlO1kGg3S/giphy.gif)](https://www.youtube.com/watch?v=yhjhjOLPDrw)
 
 # Tic Tac Toe - Mac App
 ### _This is mac app to play game ofline as well as online remotly by creating room_
 
-## How to get started
-You can download direct DMG file [from here](https://drive.google.com/file/d/1niZlqK47lgY5aRy32vwSTv-vQTP6rZ-4/view?usp=sharing) to install this game.
-
-## Features
-- Of- line mode to play tic tac toe in same computer.
-- Online mode gives you capebilites to play game with your frined remotl./
-- You can create private room and share it's code with the friend. =
+## Introduction
+- Basically this is tic tac toe game appllication for mac os. Two player can play this game in same mac device as well as if both the player are at remote place then they can play the online game. In online game, any one player has to create the room. After creating the room you will get the room code. You just need to share it with your friend. Using that code your friend can join that room and play with you online.
 
 # 🎬 Preview
 
-| Of-line Mode |
+| Ofline Mode |
 |--|
 | ![](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/master/images/ofline.gif) |
 
@@ -21,6 +16,22 @@ You can download direct DMG file [from here](https://drive.google.com/file/d/1ni
 |--|--|
 | ![](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/master/images/createRoom.gif) | ![](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/master/images/joinRoom.gif) |
  
+ 
+## How to get started
+You can download direct DMG file [from here](https://drive.google.com/file/d/1niZlqK47lgY5aRy32vwSTv-vQTP6rZ-4/view?usp=sharing) to install this game. If you are developer then you can take checkout my repo and run the code in your mac device.
+
+## Features
+- Ofline mode to play tic tac toe game in same mac device.
+- Online mode gives you capebilites to play game with your frined remotly.
+- You can create private room and share it's code with the friend.
+
+## Requierments
+- Mac os 11 or above
+
+## Tech Stack
+- Development IDE: xCode
+- Programming langue: Swift
+- Beckend: Firebase
 ## Check out full video on Youtube
 [Tic Tac Toe](https://www.youtube.com/watch?v=yhjhjOLPDrw) :  This video cover all the funcnalites of the app.
 
