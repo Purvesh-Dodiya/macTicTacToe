@@ -15,11 +15,11 @@ You can download direct DMG file [from here](https://drive.google.com/file/d/1ni
 
 | Of-line Mode |
 |--|
-| ![](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/main/images/ofline.gif) |
+| ![](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/master/images/ofline.gif) |
 
 | Create Room | Join Room |
 |--|--|
-| ![](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/main/images/createRoom.gif) | ![](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/main/images/joinRoom.gif) |
+| ![](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/master/images/createRoom.gif) | ![](https://github.com/Purvesh-Dodiya/macTicTacToe/blob/master/images/joinRoom.gif) |
  
 ## Check out full video on Youtube
 [Tic Tac Toe](https://www.youtube.com/watch?v=yhjhjOLPDrw) :  This video cover all the funcnalites of the app.
