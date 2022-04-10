@@ -22,6 +22,10 @@
 		5DE50D1F2801D91C00896CA1 /* GameZoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE50D1D2801D91C00896CA1 /* GameZoneVC.swift */; };
 		5DE50D222801E78100896CA1 /* JoinRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE50D212801E78100896CA1 /* JoinRoomVC.swift */; };
 		5DE50D242801FADD00896CA1 /* StartOflineGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE50D232801FADD00896CA1 /* StartOflineGame.swift */; };
+		5DE50D3A280217A300896CA1 /* homeAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DE50D39280217A300896CA1 /* homeAnimation.json */; };
+		5DE50D3C280219FA00896CA1 /* waitingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DE50D3B280219FA00896CA1 /* waitingAnimation.json */; };
+		5DE50D3F28021CA400896CA1 /* GameOverAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE50D3E28021CA400896CA1 /* GameOverAlertVC.swift */; };
+		5DE50D4128021F8A00896CA1 /* gameOverAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DE50D4028021F8A00896CA1 /* gameOverAnimation.json */; };
 		635F9BA48B506087039C53E0 /* Pods_Tic_Tac_Toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC22F795DD8D5E1DEB731AFB /* Pods_Tic_Tac_Toe.framework */; };
 		AD23A66BA0E46A251C1240E1 /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5405C96C2B83BD2183008EC /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework */; };
 		C05455F138DB2A81A4B7E342 /* Pods_Tic_Tac_ToeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEC2A6A9A6869975BD8DF01 /* Pods_Tic_Tac_ToeTests.framework */; };
@@ -65,6 +69,10 @@
 		5DE50D1D2801D91C00896CA1 /* GameZoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameZoneVC.swift; sourceTree = "<group>"; };
 		5DE50D212801E78100896CA1 /* JoinRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomVC.swift; sourceTree = "<group>"; };
 		5DE50D232801FADD00896CA1 /* StartOflineGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOflineGame.swift; sourceTree = "<group>"; };
+		5DE50D39280217A300896CA1 /* homeAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeAnimation.json; sourceTree = "<group>"; };
+		5DE50D3B280219FA00896CA1 /* waitingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingAnimation.json; sourceTree = "<group>"; };
+		5DE50D3E28021CA400896CA1 /* GameOverAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverAlertVC.swift; sourceTree = "<group>"; };
+		5DE50D4028021F8A00896CA1 /* gameOverAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameOverAnimation.json; sourceTree = "<group>"; };
 		6387B7A1E9D255E0BF4B81AE /* Pods-Tic Tac ToeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac ToeTests.debug.xcconfig"; path = "Target Support Files/Pods-Tic Tac ToeTests/Pods-Tic Tac ToeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		788F1AFB7630C288EA6106A4 /* Pods-Tic Tac Toe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac Toe.debug.xcconfig"; path = "Target Support Files/Pods-Tic Tac Toe/Pods-Tic Tac Toe.debug.xcconfig"; sourceTree = "<group>"; };
 		8AB0E66301131C8EA72E36FC /* Pods-Tic Tac Toe-Tic Tac ToeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac Toe-Tic Tac ToeUITests.release.xcconfig"; path = "Target Support Files/Pods-Tic Tac Toe-Tic Tac ToeUITests/Pods-Tic Tac Toe-Tic Tac ToeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +149,7 @@
 		5D7461B427F03888000299D9 /* Tic Tac Toe */ = {
 			isa = PBXGroup;
 			children = (
+				5DE50D3D28021AD000896CA1 /* Animation */,
 				5D37A45027F972ED00587637 /* GoogleService-Info.plist */,
 				5D7461B527F03888000299D9 /* AppDelegate.swift */,
 				5D7461B727F03888000299D9 /* ViewController.swift */,
@@ -154,6 +163,7 @@
 				5DE50D1D2801D91C00896CA1 /* GameZoneVC.swift */,
 				5DE50D212801E78100896CA1 /* JoinRoomVC.swift */,
 				5DE50D232801FADD00896CA1 /* StartOflineGame.swift */,
+				5DE50D3E28021CA400896CA1 /* GameOverAlertVC.swift */,
 			);
 			path = "Tic Tac Toe";
 			sourceTree = "<group>";
@@ -173,6 +183,16 @@
 				5D7461D327F03889000299D9 /* Tic_Tac_ToeUITestsLaunchTests.swift */,
 			);
 			path = "Tic Tac ToeUITests";
+			sourceTree = "<group>";
+		};
+		5DE50D3D28021AD000896CA1 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				5DE50D4028021F8A00896CA1 /* gameOverAnimation.json */,
+				5DE50D39280217A300896CA1 /* homeAnimation.json */,
+				5DE50D3B280219FA00896CA1 /* waitingAnimation.json */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		BEF24F55EA56955A476FB72B /* Frameworks */ = {
@@ -296,7 +316,10 @@
 			files = (
 				5D7461BA27F03889000299D9 /* Assets.xcassets in Resources */,
 				5D37A45127F972EE00587637 /* GoogleService-Info.plist in Resources */,
+				5DE50D3C280219FA00896CA1 /* waitingAnimation.json in Resources */,
 				5D7461BD27F03889000299D9 /* Main.storyboard in Resources */,
+				5DE50D4128021F8A00896CA1 /* gameOverAnimation.json in Resources */,
+				5DE50D3A280217A300896CA1 /* homeAnimation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +449,7 @@
 			files = (
 				5DE50D1B2801C86F00896CA1 /* WaitingVC.swift in Sources */,
 				5DE50D242801FADD00896CA1 /* StartOflineGame.swift in Sources */,
+				5DE50D3F28021CA400896CA1 /* GameOverAlertVC.swift in Sources */,
 				5DE50D222801E78100896CA1 /* JoinRoomVC.swift in Sources */,
 				5DE50D1F2801D91C00896CA1 /* GameZoneVC.swift in Sources */,
 				5D37A44F27F9718A00587637 /* CommonFunction.swift in Sources */,

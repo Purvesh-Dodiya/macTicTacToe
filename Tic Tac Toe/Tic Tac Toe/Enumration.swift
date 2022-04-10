@@ -41,3 +41,9 @@ enum GameTurnMessage: String {
     case your = "Your turn !"
     case opponent = "'s turn !"
 }
+
+enum Animation: String {
+    case homeAnimation
+    case waitingAnimation
+    case gameOverAnimation
+}
