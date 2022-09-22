@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5D37A44F27F9718A00587637 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D37A44E27F9718A00587637 /* CommonFunction.swift */; };
-		5D37A45127F972EE00587637 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D37A45027F972ED00587637 /* GoogleService-Info.plist */; };
 		5D7461B627F03888000299D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7461B527F03888000299D9 /* AppDelegate.swift */; };
 		5D7461B827F03888000299D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7461B727F03888000299D9 /* ViewController.swift */; };
 		5D7461BA27F03889000299D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7461B927F03889000299D9 /* Assets.xcassets */; };
@@ -29,6 +28,8 @@
 		635F9BA48B506087039C53E0 /* Pods_Tic_Tac_Toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC22F795DD8D5E1DEB731AFB /* Pods_Tic_Tac_Toe.framework */; };
 		AD23A66BA0E46A251C1240E1 /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5405C96C2B83BD2183008EC /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework */; };
 		C05455F138DB2A81A4B7E342 /* Pods_Tic_Tac_ToeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEC2A6A9A6869975BD8DF01 /* Pods_Tic_Tac_ToeTests.framework */; };
+		E6DFB7BC28DB8A67008F9CBA /* Tic Tac Toe in Resources */ = {isa = PBXBuildFile; fileRef = E6DFB7BB28DB8A67008F9CBA /* Tic Tac Toe */; };
+		E6DFB7BE28DB8AC1008F9CBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6DFB7BD28DB8AC1008F9CBA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +52,6 @@
 /* Begin PBXFileReference section */
 		05A1153DEC06DA6B20619B69 /* Pods-Tic Tac Toe-Tic Tac ToeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac Toe-Tic Tac ToeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Tic Tac Toe-Tic Tac ToeUITests/Pods-Tic Tac Toe-Tic Tac ToeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D37A44E27F9718A00587637 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
-		5D37A45027F972ED00587637 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D7461B227F03888000299D9 /* Tic Tac Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic Tac Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7461B527F03888000299D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D7461B727F03888000299D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +80,8 @@
 		A5405C96C2B83BD2183008EC /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE7965E65D6170994764E78 /* Pods-Tic Tac Toe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac Toe.release.xcconfig"; path = "Target Support Files/Pods-Tic Tac Toe/Pods-Tic Tac Toe.release.xcconfig"; sourceTree = "<group>"; };
 		C1EE8970522D85FEA7B49C1A /* Pods-Tic Tac ToeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac ToeTests.release.xcconfig"; path = "Target Support Files/Pods-Tic Tac ToeTests/Pods-Tic Tac ToeTests.release.xcconfig"; sourceTree = "<group>"; };
+		E6DFB7BB28DB8A67008F9CBA /* Tic Tac Toe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Tic Tac Toe"; sourceTree = "<group>"; };
+		E6DFB7BD28DB8AC1008F9CBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC22F795DD8D5E1DEB731AFB /* Pods_Tic_Tac_Toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tic_Tac_Toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,8 +151,9 @@
 		5D7461B427F03888000299D9 /* Tic Tac Toe */ = {
 			isa = PBXGroup;
 			children = (
+				E6DFB7BD28DB8AC1008F9CBA /* GoogleService-Info.plist */,
 				5DE50D3D28021AD000896CA1 /* Animation */,
-				5D37A45027F972ED00587637 /* GoogleService-Info.plist */,
+				E6DFB7BB28DB8A67008F9CBA /* Tic Tac Toe */,
 				5D7461B527F03888000299D9 /* AppDelegate.swift */,
 				5D7461B727F03888000299D9 /* ViewController.swift */,
 				5D7461B927F03889000299D9 /* Assets.xcassets */,
@@ -315,7 +318,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D7461BA27F03889000299D9 /* Assets.xcassets in Resources */,
-				5D37A45127F972EE00587637 /* GoogleService-Info.plist in Resources */,
+				E6DFB7BE28DB8AC1008F9CBA /* GoogleService-Info.plist in Resources */,
+				E6DFB7BC28DB8A67008F9CBA /* Tic Tac Toe in Resources */,
 				5DE50D3C280219FA00896CA1 /* waitingAnimation.json in Resources */,
 				5D7461BD27F03889000299D9 /* Main.storyboard in Resources */,
 				5DE50D4128021F8A00896CA1 /* gameOverAnimation.json in Resources */,
@@ -627,6 +631,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Tic Tac Toe/Tic_Tac_Toe.entitlements";
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
