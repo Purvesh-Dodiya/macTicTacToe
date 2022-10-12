@@ -9,9 +9,18 @@ import XCTest
 @testable import Tic_Tac_Toe
 
 class Tic_Tac_ToeTests: XCTestCase {
+    private var gameZone: GameZoneVC!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        gameZone = GameZoneVC()
+        gameZone.arrayOfNine[BoxName.gameOne.rawValue] = "ONE"
+        gameZone.arrayOfNine[BoxName.gameTwo.rawValue] = "ONE"
+        gameZone.arrayOfNine[BoxName.gameThree.rawValue] = "ONE"
+        
+        gameZone.arrayOfNine[BoxName.gameFour.rawValue] = "gameFour"
+        gameZone.arrayOfNine[BoxName.gameFive.rawValue] = "gameFive"
+        gameZone.arrayOfNine[BoxName.gameSix.rawValue] = "gameSix"
     }
 
     override func tearDownWithError() throws {
@@ -19,11 +28,11 @@ class Tic_Tac_ToeTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        //It should return true as three is same
+        XCTAssertTrue(gameZone.isThreeSame(firstBox: .gameOne, secondBox: .gameTwo, thirdBox: .gameThree))
+        
+        //It should return false as three is not same
+        XCTAssertFalse(gameZone.isThreeSame(firstBox: .gameFour, secondBox: .gameFive, thirdBox: .gameSix))
     }
 
     func testPerformanceExample() throws {
