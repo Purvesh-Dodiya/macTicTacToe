@@ -9,12 +9,15 @@ import Cocoa
 import Firebase
 import Lottie
 
+
 class ViewController: NSViewController {
+    @IBOutlet weak var lblWelcome: NSTextField!
     
     //MARK:- Outlets
     @IBOutlet weak var animationView: NSView!
     
     override func viewDidLoad() {
+        lblWelcome.font = R.font.heeboThin.name.getFont(size: 16)
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }

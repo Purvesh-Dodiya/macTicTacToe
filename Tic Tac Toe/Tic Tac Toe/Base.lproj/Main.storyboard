@@ -274,6 +274,7 @@ AAAAAAAAAAAAAAAAAAAAPwAAAD8AAAA/AACAPwAAgD8AAIA/A
                     </view>
                     <connections>
                         <outlet property="animationView" destination="nTI-YN-TnG" id="2aM-OY-ShR"/>
+                        <outlet property="lblWelcome" destination="C1C-YW-vtg" id="Kjs-hE-RGI"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

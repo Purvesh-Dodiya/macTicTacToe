@@ -10,11 +10,11 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        for font in NSFontManager.shared.availableFonts {
+            print("Font fam: \(font)")
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

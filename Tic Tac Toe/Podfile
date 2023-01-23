@@ -8,6 +8,7 @@ target 'Tic Tac Toe' do
 pod 'Firebase/Database'
 pod 'lottie-ios'
   # Pods for Tic Tac Toe
+  pod 'R.swift'
 
   target 'Tic Tac ToeTests' do
     inherit! :search_paths

@@ -28,6 +28,12 @@
 		635F9BA48B506087039C53E0 /* Pods_Tic_Tac_Toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC22F795DD8D5E1DEB731AFB /* Pods_Tic_Tac_Toe.framework */; };
 		AD23A66BA0E46A251C1240E1 /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5405C96C2B83BD2183008EC /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework */; };
 		C05455F138DB2A81A4B7E342 /* Pods_Tic_Tac_ToeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEC2A6A9A6869975BD8DF01 /* Pods_Tic_Tac_ToeTests.framework */; };
+		E6B9D381297EFEDC00E6A644 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9D380297EFEDC00E6A644 /* String+Extension.swift */; };
+		E6B9D384297F00DF00E6A644 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9D383297F00DF00E6A644 /* R.generated.swift */; };
+		E6B9D38C297F03B400E6A644 /* Heebo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6B9D38B297F03B400E6A644 /* Heebo-Black.ttf */; };
+		E6B9D38F297F03EC00E6A644 /* Heebo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6B9D38D297F03EC00E6A644 /* Heebo-Bold.ttf */; };
+		E6B9D390297F03EC00E6A644 /* Heebo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6B9D38E297F03EC00E6A644 /* Heebo-Thin.ttf */; };
+		E6B9D392297F047000E6A644 /* Heebo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6B9D391297F047000E6A644 /* Heebo-Medium.ttf */; };
 		E6DFB7BE28DB8AC1008F9CBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6DFB7BD28DB8AC1008F9CBA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +85,14 @@
 		A5405C96C2B83BD2183008EC /* Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tic_Tac_Toe_Tic_Tac_ToeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE7965E65D6170994764E78 /* Pods-Tic Tac Toe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac Toe.release.xcconfig"; path = "Target Support Files/Pods-Tic Tac Toe/Pods-Tic Tac Toe.release.xcconfig"; sourceTree = "<group>"; };
 		C1EE8970522D85FEA7B49C1A /* Pods-Tic Tac ToeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tic Tac ToeTests.release.xcconfig"; path = "Target Support Files/Pods-Tic Tac ToeTests/Pods-Tic Tac ToeTests.release.xcconfig"; sourceTree = "<group>"; };
+		E6B9D380297EFEDC00E6A644 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		E6B9D383297F00DF00E6A644 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		E6B9D38B297F03B400E6A644 /* Heebo-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heebo-Black.ttf"; sourceTree = "<group>"; };
+		E6B9D38D297F03EC00E6A644 /* Heebo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heebo-Bold.ttf"; sourceTree = "<group>"; };
+		E6B9D38E297F03EC00E6A644 /* Heebo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heebo-Thin.ttf"; sourceTree = "<group>"; };
+		E6B9D391297F047000E6A644 /* Heebo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heebo-Medium.ttf"; sourceTree = "<group>"; };
 		E6DFB7BD28DB8AC1008F9CBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E6F91979297ED7A10094EFC3 /* Tic-Tac-Toe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Tic-Tac-Toe-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E6F9C15628DC3A3600D77210 /* Tic_Tac_Toe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tic_Tac_Toe.entitlements; sourceTree = "<group>"; };
 		EC22F795DD8D5E1DEB731AFB /* Pods_Tic_Tac_Toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tic_Tac_Toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,6 +163,9 @@
 		5D7461B427F03888000299D9 /* Tic Tac Toe */ = {
 			isa = PBXGroup;
 			children = (
+				E6B9D383297F00DF00E6A644 /* R.generated.swift */,
+				E6F91979297ED7A10094EFC3 /* Tic-Tac-Toe-Info.plist */,
+				E6F91976297ED6D20094EFC3 /* Font */,
 				E6F9C15628DC3A3600D77210 /* Tic_Tac_Toe.entitlements */,
 				E6DFB7BD28DB8AC1008F9CBA /* GoogleService-Info.plist */,
 				5DE50D3D28021AD000896CA1 /* Animation */,
@@ -166,6 +182,7 @@
 				5DE50D212801E78100896CA1 /* JoinRoomVC.swift */,
 				5DE50D232801FADD00896CA1 /* StartOflineGame.swift */,
 				5DE50D3E28021CA400896CA1 /* GameOverAlertVC.swift */,
+				E6B9D380297EFEDC00E6A644 /* String+Extension.swift */,
 			);
 			path = "Tic Tac Toe";
 			sourceTree = "<group>";
@@ -207,6 +224,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E6F91976297ED6D20094EFC3 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				E6B9D38B297F03B400E6A644 /* Heebo-Black.ttf */,
+				E6B9D391297F047000E6A644 /* Heebo-Medium.ttf */,
+				E6B9D38D297F03EC00E6A644 /* Heebo-Bold.ttf */,
+				E6B9D38E297F03EC00E6A644 /* Heebo-Thin.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,6 +243,7 @@
 			buildConfigurationList = 5D7461D727F03889000299D9 /* Build configuration list for PBXNativeTarget "Tic Tac Toe" */;
 			buildPhases = (
 				877A682C712BA1901EA20BA3 /* [CP] Check Pods Manifest.lock */,
+				E6B9D375297EF09700E6A644 /* ShellScript */,
 				5D7461AE27F03888000299D9 /* Sources */,
 				5D7461AF27F03888000299D9 /* Frameworks */,
 				5D7461B027F03888000299D9 /* Resources */,
@@ -317,8 +346,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D7461BA27F03889000299D9 /* Assets.xcassets in Resources */,
+				E6B9D392297F047000E6A644 /* Heebo-Medium.ttf in Resources */,
 				E6DFB7BE28DB8AC1008F9CBA /* GoogleService-Info.plist in Resources */,
+				E6B9D38C297F03B400E6A644 /* Heebo-Black.ttf in Resources */,
+				E6B9D38F297F03EC00E6A644 /* Heebo-Bold.ttf in Resources */,
 				5DE50D3C280219FA00896CA1 /* waitingAnimation.json in Resources */,
+				E6B9D390297F03EC00E6A644 /* Heebo-Thin.ttf in Resources */,
 				5D7461BD27F03889000299D9 /* Main.storyboard in Resources */,
 				5DE50D4128021F8A00896CA1 /* gameOverAnimation.json in Resources */,
 				5DE50D3A280217A300896CA1 /* homeAnimation.json in Resources */,
@@ -442,6 +475,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tic Tac Toe-Tic Tac ToeUITests/Pods-Tic Tac Toe-Tic Tac ToeUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E6B9D375297EF09700E6A644 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$SRCROOT/Tic Tac Toe/R.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Tic Tac Toe/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -453,12 +505,14 @@
 				5DE50D242801FADD00896CA1 /* StartOflineGame.swift in Sources */,
 				5DE50D3F28021CA400896CA1 /* GameOverAlertVC.swift in Sources */,
 				5DE50D222801E78100896CA1 /* JoinRoomVC.swift in Sources */,
+				E6B9D381297EFEDC00E6A644 /* String+Extension.swift in Sources */,
 				5DE50D1F2801D91C00896CA1 /* GameZoneVC.swift in Sources */,
 				5D37A44F27F9718A00587637 /* CommonFunction.swift in Sources */,
 				5D7461B827F03888000299D9 /* ViewController.swift in Sources */,
 				5DE50D172801A58900896CA1 /* CreateRoomVC.swift in Sources */,
 				5D7461E127F0A77B000299D9 /* Enumration.swift in Sources */,
 				5D7461B627F03888000299D9 /* AppDelegate.swift in Sources */,
+				E6B9D384297F00DF00E6A644 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +690,7 @@
 				DEVELOPMENT_TEAM = U9Z3RUNG48;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tic-Tac-Toe-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -666,6 +721,7 @@
 				DEVELOPMENT_TEAM = U9Z3RUNG48;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tic-Tac-Toe-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
